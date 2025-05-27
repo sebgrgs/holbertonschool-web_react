@@ -46,8 +46,23 @@ function createEmployee(salary: number | string): Director | Teacher {
   }
 }
 
-console.log(createEmployee(200));
+function isDirector(employee: Director | Teacher): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
+}
 
-console.log(createEmployee(1000));
+function executeWork(employee: Director | Teacher): string {
+  if (isDirector(employee)) {
+	return employee.workDirectorTasks();
+  } else {
+	return employee.workTeacherTasks();
+  }
+}
 
-console.log(createEmployee('$500'));
+type Subjects = 'Math' | 'History'
+
+function teachClass(todayClass: Subjects): string {
+	if (todayClass === 'Math') {
+		return 'Teaching Math';
+	}
+	return 'Teaching History';
+}
