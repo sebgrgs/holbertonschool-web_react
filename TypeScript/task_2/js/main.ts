@@ -64,5 +64,10 @@ function teachClass(todayClass: Subjects): string {
 	if (todayClass === 'Math') {
 		return 'Teaching Math';
 	}
-	return 'Teaching History';
+  else if (todayClass === 'History') {
+	  return 'Teaching History';
+  }
+  else {
+    return ('Unknown subject');
+  }
 }
